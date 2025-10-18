@@ -1,17 +1,65 @@
-<script type="text/javascript">
-  (function(d,t){
-    var v=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    v.onload=function(){
-      window.voiceflow.chat.load({
-        verify:{projectID:'680688a822b5f229fbedded73'},
-        url:'https://general-runtime.voiceflow.com',
-        versionID:'production',
-        voice:{url:"https://runtime-api.voiceflow.com"},
-        autostart: true  // <-- esta linha faz o chat abrir automaticamente
-      });
-    };
-    v.src="https://cdn.voiceflow.com/widget-next/bundle.mjs";
-    v.type="text/javascript";
-    s.parentNode.insertBefore(v,s);
-  })(document,'script');
-</script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Síndico Virtual Manacás</title>
+  <style>
+    body {
+      background-color: #f8f9fb;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #0b4fa3;
+      margin-bottom: 20px;
+    }
+
+    #chat-container {
+      width: 100%;
+      max-width: 450px;
+      height: 80vh;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <h1>💬 Fale com o Síndico Virtual Manacás</h1>
+
+  <div id="chat-container"></div>
+
+  <script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '686688a822b5f229fbdedd73' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
+            },
+            autostart: true,           // abre automaticamente
+            container: document.getElementById("chat-container"), // insere dentro do container
+            showLauncher: false        // remove o botão “try your agent”
+          });
+        };
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+        v.type = "text/javascript";
+        s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+</body>
+</html>
