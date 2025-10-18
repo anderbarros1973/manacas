@@ -1,65 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Síndico Virtual Manacás</title>
   <style>
     body {
-      background-color: #f8f9fb;
+      background-color: #f7f9fc;
       font-family: "Segoe UI", Arial, sans-serif;
-      color: #222;
       margin: 0;
       padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
+      justify-content: flex-start;
+      min-height: 100vh;
     }
 
     h1 {
-      font-size: 1.8rem;
       color: #0b4fa3;
-      margin-bottom: 20px;
+      margin-top: 40px;
+      margin-bottom: 10px;
     }
 
     #chat-container {
       width: 100%;
-      max-width: 450px;
+      max-width: 420px;
       height: 80vh;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      background: #fff;
     }
   </style>
 </head>
 <body>
   <h1>💬 Fale com o Síndico Virtual Manacás</h1>
-
   <div id="chat-container"></div>
 
   <script type="text/javascript">
-    (function(d, t) {
-        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        v.onload = function() {
-          window.voiceflow.chat.load({
-            verify: { projectID: '686688a822b5f229fbdedd73' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production',
-            voice: {
-              url: "https://runtime-api.voiceflow.com"
-            },
-            autostart: true,           // abre automaticamente
-            container: document.getElementById("chat-container"), // insere dentro do container
-            showLauncher: false        // remove o botão “try your agent”
-          });
-        };
-        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-        v.type = "text/javascript";
-        s.parentNode.insertBefore(v, s);
-    })(document, 'script');
+    (function (d, t) {
+      var v = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+      v.onload = function () {
+        window.voiceflow.chat.load({
+          verify: { projectID: "686688a822b5f229fbdedd73" },
+          url: "https://general-runtime.voiceflow.com",
+          versionID: "production",
+          voice: { url: "https://runtime-api.voiceflow.com" },
+          autostart: true, // abre o chat automaticamente
+          showLauncher: false, // remove o botão flutuante
+          container: document.getElementById("chat-container"), // embute o chat no centro
+        });
+      };
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+      v.type = "text/javascript";
+      s.parentNode.insertBefore(v, s);
+    })(document, "script");
   </script>
 </body>
 </html>
