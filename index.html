@@ -5,55 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Síndico Virtual Manacás</title>
   <style>
-    body {
-      background-color: #f8f9fb;
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: #222;
+    html, body {
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      color: #0b4fa3;
-      margin-bottom: 20px;
-    }
-
-    /* Container do chat */
-    #voiceflow-chat {
+      height: 100%;
       width: 100%;
-      max-width: 420px;
-      height: 80vh;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       overflow: hidden;
+      background-color: #f5f7fa;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    #voiceflow-chat {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
     }
   </style>
 </head>
 
 <body>
-  <h1>💬 Fale com o Síndico Virtual Manacás</h1>
-
-  <!-- Onde o chat será inserido -->
+  <!-- Chat ocupa 100% da tela -->
   <div id="voiceflow-chat"></div>
 
   <script type="text/javascript">
     (function(d, t) {
       var v = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
+          s = d.getElementsByTagName(t)[0];
       v.onload = function() {
         window.voiceflow.chat.load({
           verify: { projectID: '686688a822b5f229fbdedd73' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
           render: {
-            mode: 'embedded',               // Modo embutido
-            target: document.getElementById('voiceflow-chat') // O container definido acima
+            mode: 'embedded',
+            target: document.getElementById('voiceflow-chat')
           }
         });
       };
