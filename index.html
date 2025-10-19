@@ -39,24 +39,24 @@
   <div id="chat-container"></div>
 
   <script type="text/javascript">
-    (function (d, t) {
-      var v = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-      v.onload = function () {
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
         window.voiceflow.chat.load({
-          verify: { projectID: "686688a822b5f229fbdedd73" },
-          url: "https://general-runtime.voiceflow.com",
-          versionID: "production",
-          voice: { url: "https://runtime-api.voiceflow.com" },
-          autostart: true, // abre o chat automaticamente
-          showLauncher: false, // remove o botão flutuante
-          container: document.getElementById("chat-container"), // embute o chat no centro
+          verify: { projectID: '686688a822b5f229fbdedd73' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          voice: {
+            url: "https://runtime-api.voiceflow.com"
+          },
+          render: {
+            mode: 'embedded',
+            target: document.getElementById(...)
+          }
         });
-      };
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-      v.type = "text/javascript";
-      s.parentNode.insertBefore(v, s);
-    })(document, "script");
-  </script>
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
 </body>
 </html>
