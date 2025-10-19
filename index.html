@@ -6,56 +6,61 @@
   <title>Síndico Virtual Manacás</title>
   <style>
     body {
-      background-color: #f7f9fc;
+      background-color: #f8f9fb;
       font-family: "Segoe UI", Arial, sans-serif;
+      color: #222;
       margin: 0;
       padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
+      justify-content: center;
+      height: 100vh;
     }
 
     h1 {
+      font-size: 1.8rem;
       color: #0b4fa3;
-      margin-top: 40px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
-    #chat-container {
+    /* Container do chat */
+    #voiceflow-chat {
       width: 100%;
       max-width: 420px;
       height: 80vh;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-      background: #fff;
     }
   </style>
 </head>
+
 <body>
   <h1>💬 Fale com o Síndico Virtual Manacás</h1>
-  <div id="chat-container"></div>
-<script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+
+  <!-- Onde o chat será inserido -->
+  <div id="voiceflow-chat"></div>
+
+  <script type="text/javascript">
+    (function(d, t) {
+      var v = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
       v.onload = function() {
         window.voiceflow.chat.load({
           verify: { projectID: '686688a822b5f229fbdedd73' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-          },
           render: {
-            mode: 'embedded',
-            target: document.getElementById(...)
+            mode: 'embedded',               // Modo embutido
+            target: document.getElementById('voiceflow-chat') // O container definido acima
           }
         });
-      }
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
-</script>
+      };
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+      v.type = "text/javascript";
+      s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
 </body>
 </html>
